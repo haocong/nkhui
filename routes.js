@@ -66,6 +66,7 @@ router.post('/apply/teacher', function(req, res, next) {
       studentID: req.body.studentid,
       contactPhone: req.body.contactphone,
       email: req.body.email,
+      major: req.body.major,
       intentLevel: toArray(req.body.intentlevel),
       intentSubject: toArray(req.body.intentsubject),
       extentSubject: toArray(req.body.extentsubject)

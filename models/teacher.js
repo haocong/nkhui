@@ -6,6 +6,7 @@ var teacherSchema = mongoose.Schema({
   sex: { type: Number, required: true },
   schoolName: { type: String, required: true },
   studentID: { type: String, required: true, unique: true },
+  major: String,
   contactPhone: { type: String, required: true },
   email: String,
   intentLevel: Array,
