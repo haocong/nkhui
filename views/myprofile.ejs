@@ -8,6 +8,7 @@
     </p>
     </div>
     <div class="bd">
+      <% if (currentUser._id) { %>
       <div class="weui_cells">
         <div class="weui_cell">
           <div class="weui_cell_bd weui_cell_primary">
@@ -70,6 +71,7 @@
           <div class="weui_cell_ft"><%= currentUser.extentSubject.join(', ') || '暂无' %></div>
         </div>
       </div>
+      <% } %>
     </div>
   </div>
 <% include _footer %>
