@@ -32,10 +32,10 @@ router.use(function(req, res, next) {
   next();
 });
 
-router.get('/auth/wechat', passport.authenticate('wechat', {
-  failureRedirect: '/auth/fail',
-  successRedirect: '/'
-}));
+router.get('/auth/wechat', passport.authenticate('wechat', { failureRedirect: '/auth/fail' }),
+  function(req, res) {
+    res.redirect('/' + (req.query.redirect_to || ''));
+  });
 
 router.get('/auth/fail', function(req, res) {
   res.render('authfail');
@@ -76,7 +76,7 @@ router.post('/apply/teacher', function(req, res, next) {
   });
 }, passport.authenticate('wechat', {
   failureRedirect: '/apply/failure',
-  successRedirect: '/apply/success',
+  callbackURL: 'http://local.haocong.me/auth/wechat?redirect_to=apply/success',
   failureFlash: true
 }));
 
@@ -84,16 +84,20 @@ router.get('/apply/student', ensureAuthenticated, function(req, res) {
   res.render('applystudent');
 });
 
-router.get('/apply/failure', ensureAuthenticated, function(req, res) {
-  res.render('applyfailure');
-});
-
 router.get('/apply/success', ensureAuthenticated, function(req, res) {
   res.render('applysuccess');
 });
 
+router.get('/apply/failure', ensureAuthenticated, function(req, res) {
+  res.render('applyfailure');
+});
+
 router.get('/resource', ensureAuthenticated, function(req, res) {
   res.render('resource');
+});
+
+router.get('/myprofile', function(req, res) {
+  res.render('myprofile')
 });
 
 // router.post('/printbody', function(req, res) {

@@ -1,0 +1,75 @@
+<% include _header %>
+  <div class="cell">
+    <div class="hd">
+      <h1 class="page_title">我的资料</h1>
+      <p class="user_info">
+      <img class="user_avatar" src="http://wx.qlogo.cn/mmopen/Q3auHgzwzM77QdfFknL2SvC2JnAicroM7xZjXJHykX2mfhLSB85Vb3iczld2Zbic7lKmvgNh0Td4qayml4Rovicczg/0">
+      <label class="user_nickname"><%= currentUser.nickname %></label>
+    </p>
+    </div>
+    <div class="bd">
+      <div class="weui_cells">
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>真实姓名</p>
+          </div>
+          <div class="weui_cell_ft"><%= currentUser.realName %></div>
+        </div>
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>性别</p>
+          </div>
+          <div class="weui_cell_ft"><%= currentUser.sex ? '女' : '男' %></div>
+        </div>
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>就读学校</p>
+          </div>
+          <div class="weui_cell_ft"><%= currentUser.schoolName %></div>
+        </div>
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>学号</p>
+          </div>
+          <div class="weui_cell_ft"><%= currentUser.studentID %></div>
+        </div>
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>邮箱</p>
+          </div>
+          <div class="weui_cell_ft"><%= currentUser.email %></div>
+        </div>
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>联系电话</p>
+          </div>
+          <div class="weui_cell_ft"><%= currentUser.contactPhone %></div>
+        </div>
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>认证信息</p>
+          </div>
+          <div class="weui_cell_ft"><%= currentUser.verified ? '已认证' : '未认证' %></div>
+        </div>
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>意向年级</p>
+          </div>
+          <div class="weui_cell_ft"><%= currentUser.intentLevel.join(', ') || '暂无' %></div>
+        </div>
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>意向学科</p>
+          </div>
+          <div class="weui_cell_ft"><%= currentUser.intentSubject.join(', ') || '暂无' %></div>
+        </div>
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>课外项目</p>
+          </div>
+          <div class="weui_cell_ft"><%= currentUser.extentSubject.join(', ') || '暂无' %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% include _footer %>
