@@ -1,6 +1,7 @@
 var express = require('express');
 var passport = require('passport');
 var Teacher = require('./models/teacher');
+var wxconfig = require('./wxconfig');
 var router = express.Router();
 
 function ensureAuthenticated(req, res, next) {
@@ -76,7 +77,7 @@ router.post('/apply/teacher', function(req, res, next) {
   });
 }, passport.authenticate('wechat', {
   failureRedirect: '/apply/failure',
-  callbackURL: 'http://local.haocong.me/auth/wechat?redirect_to=apply/success',
+  callbackURL: wxconfig.callbackURL + '?redirect_to=apply/success',
   failureFlash: true
 }));
 
