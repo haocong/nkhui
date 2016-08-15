@@ -27,6 +27,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(routes);
 
-app.listen(80, function() {
+app.listen(3000, function() {
   console.log('App started.')
 });
