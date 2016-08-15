@@ -1,0 +1,26 @@
+{
+  "name": "nankai-hui-edu",
+  "private": true,
+  "version": "0.0.1",
+  "description": "nylk online education platform",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.5.1",
+    "express": "4.13.4",
+    "express-session": "^1.14.0",
+    "mongoose": "^4.5.8",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-wechat": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haocong/nkhui.git"
+  },
+  "author": "haocong <haocong.xu@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  }
+}

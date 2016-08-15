@@ -1,0 +1,40 @@
+.hd {
+  padding: 2em 0;
+}
+.page_title {
+  text-align: center;
+  font-size: 34px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+.cell .page_title {
+  color: #225fba;
+}
+.cell .bd {
+  padding-bottom: 30px;
+}
+.bd.spacing {
+  padding: 0 15px;
+}
+.user_info {
+  text-align: center;
+}
+.user_info .user_avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.user_info .user_nickname {
+  display: block;
+}
+.flash_msg {
+  display: block;
+  opacity: 0;
+  animation: fadeout ease 2s;
+}
+
+@keyframes fadeout {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}

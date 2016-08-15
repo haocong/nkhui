@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>南开汇在线家教平台</title>
+    <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/0.4.2/weui.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <div class="container">
+      <% errors.forEach(function(error) { %>
+        <div class="weui_toptips weui_warn flash_msg" role="alert">
+          <%= error %>
+        </div>
+      <% }) %>
+      <% infos.forEach(function(info) { %>
+        <div class="weui_toptips weui_warn flash_msg" role="alert">
+          <%= info %>
+        </div>
+      <% }) %>
