@@ -1,18 +1,24 @@
 {
   "name": "nankai-hui-edu",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "nylk online education platform",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
+    "connect-compose": "0.0.1",
     "connect-flash": "^0.1.1",
+    "connect-multiparty": "^2.0.0",
     "ejs": "^2.5.1",
     "express": "4.13.4",
+    "express-errorlog": "^1.0.4",
     "express-session": "^1.14.0",
     "mongoose": "^4.5.8",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
-    "passport-wechat": "^2.0.2"
+    "passport-local": "^1.0.0",
+    "passport-wechat": "haocong/passport-wechat",
+    "qcloud_cos": "^1.0.4"
   },
   "repository": {
     "type": "git",
@@ -21,6 +27,11 @@
   "author": "haocong <haocong.xu@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "lint": "esw -w --ignore-pattern node_modules/** --debug *.js models/*.js routers/*.js"
+  },
+  "devDependencies": {
+    "eslint": "^3.3.1",
+    "eslint-watch": "^2.1.14"
   }
 }

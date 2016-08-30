@@ -53,16 +53,21 @@
               </select>
             </div>
           </div>
-          <div class="weui_cell">
-            <div class="weui_cell_hd">
-              <label class="weui_label">就读专业</label>
-            </div>
+          <div class="weui_cell weui_cell_select">
             <div class="weui_cell_bd weui_cell_primary">
-              <input name="major" class="weui_input" type="text" placeholder="请输入所学专业">
+              <select name="major" class="weui_select">
+                <% faculties.forEach(function(falcuty, i) {
+                  if(i === 0) { %>
+                    <option value="<%= falcuty %>" selected><%= falcuty %></option>
+                  <% } else { %>
+                    <option value="<%= falcuty %>"><%= falcuty %></option>
+                  <% }
+                }) %>
+              </select>
             </div>
           </div>
         </div>
-        <div class="weui_cells_title">联系信息</div>
+        <div class="weui_cells_title">联系电话</div>
         <div class="weui_cells">
           <div class="weui_cell">
             <div class="weui_cell_hd">
@@ -70,14 +75,6 @@
             </div>
             <div class="weui_cell_bd weui_cell_primary">
               <input name="contactphone" class="weui_input" type="tel" placeholder="请输入号码" required>
-            </div>
-          </div>
-          <div class="weui_cell">
-            <div class="weui_cell_hd">
-              <label class="weui_label">邮箱地址</label>
-            </div>
-            <div class="weui_cell_bd weui_cell_primary">
-              <input name="email" class="weui_input" type="email" placeholder="请输入邮箱地址" required>
             </div>
           </div>
         </div>

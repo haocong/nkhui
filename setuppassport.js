@@ -1,15 +1,18 @@
 var passport = require('passport');
-var Teacher = require('./models/teacher');
+var User = require('./models/user');
 var wxconfig = require('./wxconfig');
+var LocalStrategy = require('passport-local').Strategy;
 var WechatStrategy = require('passport-wechat').Strategy;
 
 module.exports = function() {
   passport.serializeUser(function(user, done) {
-    done(null, user);
+    done(null, user._id);
   });
 
-  passport.deserializeUser(function(user, done) {
-    done(null, user);
+  passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+      done(err, user);
+    });
   });
 
   passport.use(new WechatStrategy({
@@ -19,15 +22,37 @@ module.exports = function() {
       client: 'wechat',
       callbackURL: wxconfig.callbackURL,
       scope: 'snsapi_userinfo',
-      state:'STATE'
-    }, function(accessToken, refreshToken, profile, done) {
-      Teacher.findOne({ openid: profile.openid }, function(err, user) {
+      state: 'STATE',
+      lang: 'zh_CN',
+      passReqToCallback: true
+    }, function(req, accessToken, refreshToken, profile, done) {
+      req.session.wechatInfo = profile;
+      User.findOne({ openid: profile.openid }, function(err, user) {
         if (err) { return done(err); }
         if (!user) {
-          return done(null, profile);
+          return done(null, false, { message: '尚未注册' });
         }
-        return done(null, Object.assign(profile, user._doc));
+        return done(null, user);
       });
     }
   ));
+
+  passport.use('local', new LocalStrategy({
+    usernameField: 'email'
+  },function(email, password, done) {
+    User.findOne({ email: email }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: '该邮箱尚未注册' });
+      }
+      user.checkPassword(password, function(err, isMatch) {
+        if (err) { return done(err); }
+        if (isMatch) {
+          return done(null, user);
+        } else {
+          return done(null, false, { message: '密码错误' });
+        }
+      });
+    });
+  }));
 };

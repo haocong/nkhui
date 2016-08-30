@@ -1,0 +1,34 @@
+<% include _header %>
+<div class="cell">
+  <div class="hd">
+    <h1 class="page_title">用户登录</h1>
+  </div>
+  <div class="bd">
+    <form action="/login" method="post">
+      <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+          <div class="weui_cell_hd">
+            <label class="weui_label">邮箱地址</label>
+          </div>
+          <div class="weui_cell_bd weui_cell_primary">
+            <input name="email" class="weui_input" type="email" placeholder="请输入邮箱地址" required>
+          </div>
+        </div>
+        <div class="weui_cell">
+          <div class="weui_cell_hd">
+            <label class="weui_label">输入密码</label>
+          </div>
+          <div class="weui_cell_bd weui_cell_primary">
+            <input name="password" class="weui_input" type="password" pattern=".{6,}" placeholder="请输入密码" required>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="weui_btn_area">
+        <input type="submit" value="提交" class="weui_btn weui_btn_primary">
+      </div>
+    </form>
+  </div>
+</div>
+<% include _copyright %>
+<% include _footer %>

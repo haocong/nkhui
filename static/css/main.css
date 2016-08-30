@@ -31,6 +31,11 @@ body {
 .user_info .user_nickname {
   display: block;
 }
+
+.weui_toptips.weui_info {
+  background-color: #225fba;
+}
+
 .flash_msg {
   display: block;
   opacity: 0;

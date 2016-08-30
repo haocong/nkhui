@@ -3,81 +3,84 @@
     <div class="hd">
       <h1 class="page_title">我的资料</h1>
       <p class="user_info">
-      <img class="user_avatar" src="http://wx.qlogo.cn/mmopen/Q3auHgzwzM77QdfFknL2SvC2JnAicroM7xZjXJHykX2mfhLSB85Vb3iczld2Zbic7lKmvgNh0Td4qayml4Rovicczg/0">
-      <label class="user_nickname"><%= currentUser.nickname %></label>
+      <img class="user_avatar" src="<%= wechatInfo.headimgurl %>">
+      <label class="user_nickname"><%= wechatInfo.nickname %></label>
     </p>
     </div>
     <div class="bd">
-      <% if (currentUser._id) { %>
       <div class="weui_cells">
+        <div class="weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">
+            <p>邮箱地址</p>
+          </div>
+          <div class="weui_cell_ft"><%= currentUser.email %></div>
+        </div>
+        <% if (extraInfo) { %>
         <div class="weui_cell">
           <div class="weui_cell_bd weui_cell_primary">
             <p>真实姓名</p>
           </div>
-          <div class="weui_cell_ft"><%= currentUser.realName %></div>
+          <div class="weui_cell_ft"><%= extraInfo.realName %></div>
         </div>
         <div class="weui_cell">
           <div class="weui_cell_bd weui_cell_primary">
             <p>性别</p>
           </div>
-          <div class="weui_cell_ft"><%= currentUser.sex ? '女' : '男' %></div>
+          <div class="weui_cell_ft"><%= extraInfo.sex ? '女' : '男' %></div>
         </div>
         <div class="weui_cell">
           <div class="weui_cell_bd weui_cell_primary">
             <p>就读学校</p>
           </div>
-          <div class="weui_cell_ft"><%= currentUser.schoolName %></div>
+          <div class="weui_cell_ft"><%= extraInfo.schoolName %></div>
         </div>
         <div class="weui_cell">
           <div class="weui_cell_bd weui_cell_primary">
             <p>就读专业</p>
           </div>
-          <div class="weui_cell_ft"><%= currentUser.major %></div>
+          <div class="weui_cell_ft"><%= extraInfo.major %></div>
         </div>
         <div class="weui_cell">
           <div class="weui_cell_bd weui_cell_primary">
             <p>学号</p>
           </div>
-          <div class="weui_cell_ft"><%= currentUser.studentID %></div>
-        </div>
-        <div class="weui_cell">
-          <div class="weui_cell_bd weui_cell_primary">
-            <p>邮箱</p>
-          </div>
-          <div class="weui_cell_ft"><%= currentUser.email %></div>
+          <div class="weui_cell_ft"><%= extraInfo.studentID %></div>
         </div>
         <div class="weui_cell">
           <div class="weui_cell_bd weui_cell_primary">
             <p>联系电话</p>
           </div>
-          <div class="weui_cell_ft"><%= currentUser.contactPhone %></div>
+          <div class="weui_cell_ft"><%= extraInfo.contactPhone %></div>
         </div>
         <div class="weui_cell">
           <div class="weui_cell_bd weui_cell_primary">
             <p>认证信息</p>
           </div>
-          <div class="weui_cell_ft"><%= currentUser.verified ? '已认证' : '未认证' %></div>
+          <div class="weui_cell_ft"><%= extraInfo.verified ? '已认证' : '未认证' %></div>
         </div>
         <div class="weui_cell">
           <div class="weui_cell_bd weui_cell_primary">
             <p>意向年级</p>
           </div>
-          <div class="weui_cell_ft"><%= currentUser.intentLevel.join(', ') || '暂无' %></div>
+          <div class="weui_cell_ft"><%= extraInfo.intentLevel.join(', ') || '暂无' %></div>
         </div>
         <div class="weui_cell">
           <div class="weui_cell_bd weui_cell_primary">
             <p>意向学科</p>
           </div>
-          <div class="weui_cell_ft"><%= currentUser.intentSubject.join(', ') || '暂无' %></div>
+          <div class="weui_cell_ft"><%= extraInfo.intentSubject.join(', ') || '暂无' %></div>
         </div>
         <div class="weui_cell">
           <div class="weui_cell_bd weui_cell_primary">
             <p>课外项目</p>
           </div>
-          <div class="weui_cell_ft"><%= currentUser.extentSubject.join(', ') || '暂无' %></div>
+          <div class="weui_cell_ft"><%= extraInfo.extentSubject.join(', ') || '暂无' %></div>
         </div>
       </div>
       <% } %>
+      <p class="weui_btn_area">
+        <a href="/" class="weui_btn weui_btn_primary">返回首页</a>
+      </p>
     </div>
   </div>
 <% include _footer %>

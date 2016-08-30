@@ -3,14 +3,14 @@
   <div class="hd">
     <h1 class="page_title">欢迎</h1>
     <p class="user_info">
-      <img class="user_avatar" src="http://wx.qlogo.cn/mmopen/Q3auHgzwzM77QdfFknL2SvC2JnAicroM7xZjXJHykX2mfhLSB85Vb3iczld2Zbic7lKmvgNh0Td4qayml4Rovicczg/0">
-      <label class="user_nickname"><%= currentUser.nickname %></label>
+      <img class="user_avatar" src="<%= wechatInfo.headimgurl %>">
+      <label class="user_nickname"><%= wechatInfo.nickname %></label>
     </p>
   </div>
   <div class="bd">
     <div class="weui_cells weui_cells_access">
-      <% if (currentUser && !currentUser._id) { %>
-        <a class="weui_cell" href="/apply/teacher">
+      <% if (currentUser && !currentUser.role) { %>
+        <a class="weui_cell" href="apply/teacher">
           <div class="weui_cell_hd">
             <img src="/img/teacher.png" alt="icon" style="width:20px;margin-right:5px;display:block">
           </div>
@@ -28,8 +28,8 @@
           </div>
           <div class="weui_cell_ft">去申请</div>
         </a>
-      <% } else { %>
-      <a class="weui_cell" href="/resource">
+      <% } %>
+      <a class="weui_cell" href="resource">
         <div class="weui_cell_hd">
           <img src="/img/resource.png" alt="icon" style="width:20px;margin-right:5px;display:block">
         </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="weui_cell_ft">查看</div>
       </a>
-      <a class="weui_cell" href="/myprofile">
+      <a class="weui_cell" href="myprofile">
         <div class="weui_cell_hd">
           <img src="/img/user.png" alt="icon" style="width:20px;margin-right:5px;display:block">
         </div>
@@ -47,7 +47,6 @@
         </div>
         <div class="weui_cell_ft">查看</div>
       </a>
-      <% } %>
     </div>
   </div>
 </div>

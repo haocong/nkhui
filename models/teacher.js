@@ -1,14 +1,12 @@
 var mongoose = require('mongoose');
 var teacherSchema = mongoose.Schema({
+  userid: { type: String, required: true },
   realName: { type: String, required: true },
-  openid: { type: String, required: true, unique: true },
-  createdAt: { type: Date, default: Date.now },
   sex: { type: Number, required: true },
   schoolName: { type: String, required: true },
   studentID: { type: String, required: true, unique: true },
   major: String,
   contactPhone: { type: String, required: true },
-  email: String,
   intentLevel: Array,
   intentSubject: Array,
   extentSubject: Array,
