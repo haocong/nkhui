@@ -36,6 +36,11 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+// log errors
+app.use(errorlog({
+  logger: errorLogStream
+}));
+
 app.use(function(req, res, next) {
   var deviceAgent = req.get('User-Agent').toLowerCase();
   var agentID = deviceAgent.match(/(iphone|ipod|ipad|android)/);
@@ -45,15 +50,11 @@ app.use(function(req, res, next) {
     return desktopRoute(req, res, next);
   }
 });
-// app.use('/m', mobileRoute);
-// log errors
-app.use(errorlog({
-  logger: errorLogStream
-}));
+
 app.use(function(err, req, res, next) {
   res.status(500).render('mobile/500');
 });
 
-app.listen(80, function() {
-  console.log('App started.');
+app.listen(3000, function() {
+  console.log('app started.');
 });
